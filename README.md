@@ -68,16 +68,16 @@ A few things stand out:
 For fuel source $i$ (six sources) and plant $j$ (four plants), the decision variable $x_{ij}$ is the tonnes of fuel $i$ delivered to plant $j$ in a year. That gives 24 variables and 18 constraints.
 
 $$
-\min \sum_{i}\sum_{j} c_{ij}\, x_{ij}
+\min \sum_{i}\sum_{j} c_{ij} x_{ij}
 $$
 
 subject to
 
 $$
 \begin{aligned}
-\textstyle\sum_i e_i\, x_{ij} &\ge H_j && \text{heat demand at each plant} \\
-\textstyle\sum_{i \in \text{coal}} (s_i - \bar{S})\, x_{ij} &\le 0 && \text{coal blend no higher in sulphur than the FY25 blend} \\
-\textstyle\sum_{i \in \text{alt}} e_i\, x_{ij} &\le \tau \textstyle\sum_i e_i\, x_{ij} && \text{alternative fuels at most } \tau \text{ of the heat} \\
+\textstyle\sum_i e_i x_{ij} &\ge H_j && \text{heat demand at each plant} \\
+\textstyle\sum_{i \in \text{coal}} (s_i - \bar{S}) x_{ij} &\le 0 && \text{coal-blend sulphur no higher than FY25} \\
+\textstyle\sum_{i \in \text{alt}} e_i x_{ij} &\le \tau \textstyle\sum_i e_i x_{ij} && \text{alternative fuels at most } \tau \text{ of the heat} \\
 \textstyle\sum_j x_{ij} &\le Q_i && \text{supply available from each source} \\
 x_{ij} &\ge 0
 \end{aligned}
@@ -94,7 +94,7 @@ $$
 
 Heat demand comes from FY25 production: clinker = cement × 95% − supplementary materials = 4.60 Mt, and kiln heat = 3.03 GJ per tonne of clinker (724 kcal/kg). This is split across plants by capacity. Freight is road distance × Rs 6.92 per tonne-km, calibrated to a published Karachi-to-north coal freight rate.
 
-The **baseline** applies the FY25 disclosed mix at every plant. Alternative fuels give 9.4% of the heat, and coal is 25% Afghan and 75% local by mass. Its cost is Rs 19.76 bn, 7.8% below the fuel cost in the company's accounts (Rs 21.44 bn, from nine months annualised). That's close enough for a model that leaves out handling, storage and quality penalties.
+The **baseline** applies the FY25 disclosed mix at every plant. Alternative fuels give 9.4% of the heat, and coal is 25% Afghan and 75% local by mass. Its cost is Rs 19.76 bn, 7.8% below the fuel cost in the company's accounts (Rs 21.44 bn, from nine months annualized). That's close enough for a model that leaves out handling, storage and quality penalties.
 
 ### Checks
 
