@@ -1,0 +1,7 @@
+# Runs the whole project in order. Open cost-optimization-linear-programming.Rproj in RStudio, then: source("run_all.R")
+source("R/01_build_dataset.R")
+source("R/02_optimization_model.R")
+source("R/03_verify_solution.R")
+source("R/04_build_excel.R")
+source("R/05_scenarios.R")
+source("R/06_charts.R")

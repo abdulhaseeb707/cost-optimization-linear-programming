@@ -1,0 +1,7 @@
+"source_id","source_name","fuel_type","origin_point","lat","lon","cv_reported","cv_basis","cv_source","sulphur_pct","sulphur_source","ash_pct","ash_source","supply_capacity_t","ncv_gj_per_t","price_pkr_per_t","price_type","price_basis","supply_capacity_type"
+"AFG","Afghan coal","coal","Torkham border",34.131,71.092,6000,"NCV","S17",0.8,"S17",12,"S17",2e+05,25.121,37748,"C","S7 high price (delivered north, A) minus avg freight Torkham->north plants","S"
+"BAL","Local coal - Balochistan","coal","Duki coalfield",30.153,68.573,6158,"GCV","S15",4.9,"S15",8.43,"S15",3e+05,23.204,30123,"C","S7 low price (delivered north, A) minus avg freight Duki->north plants","S"
+"SRC","Local coal - Salt Range","coal","Choa Saidan Shah",32.72,72.98,4972,"GCV","S24",5.32,"S24",24.23,"S24",3e+05,18.735,24322,"C","Balochistan ex-mine price scaled by NCV ratio (equal price per GJ, A)","S"
+"IMP","Imported coal (South African type)","coal","Port Qasim, Karachi",24.78,67.33,6290,"GCV","S15",0.8,"S15",,"-",1e+06,23.701,34672,"C","FY25 FOB (S14, C) + sea freight (A) x FX (A) + port handling (A)","S"
+"BIO","Biomass (rice husk)","alt_fuel","Local collection",,,13.63,"unspecified_MJ_kg","S25",0.11,"S25",15.2,"S25",1e+05,12.267,12000,"S","Simulated delivered price incl. local collection","S"
+"TDF","Tyre-derived fuel","alt_fuel","Local collection",,,35.15,"NCV_MJ_kg","S26",1.57,"S26",,"-",15000,35.15,20000,"S","Simulated delivered price incl. local collection","S"

@@ -1,0 +1,5 @@
+"plant_id","plant_name","location_reference","lat","lon","cement_capacity_tpd","cement_capacity_tpa","capacity_share","clinker_t","heat_demand_gj"
+"JB","Jhang Bahtar","Fateh Jang (Attock)",33.565,72.642,11865,3559500,0.340361445783133,1565727,4743342
+"WAH","Wah","Taxila (Rawalpindi)",33.746,72.84,3675,1102500,0.105421686746988,484960,1469178
+"NZP","Nizampur","Nizampur (Nowshera)",33.79,72.03,12495,3748500,0.358433734939759,1648863,4995201
+"DGK","Dera Ghazi Khan","Dera Ghazi Khan",30.046,70.64,6825,2047500,0.19578313253012,900639,2728470

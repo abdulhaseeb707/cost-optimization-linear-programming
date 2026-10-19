@@ -1,0 +1,54 @@
+file,variable,definition,unit,data_type,source_id,notes
+company_public_data.csv,id,Row identifier,-,-,-,
+company_public_data.csv,metric,Name of the published figure,-,V,see row,Only FCCL-published figures; nothing simulated
+company_public_data.csv,value,Published value,see unit,V,see row,
+company_public_data.csv,unit,Unit of value,-,-,-,
+company_public_data.csv,period,Fiscal period (FY = 1 Jul - 30 Jun),-,-,-,
+company_public_data.csv,source_id,Source register ID,-,-,references/sources.md,
+company_public_data.csv,data_type,Always V (verified public),-,-,-,
+plants.csv,plant_id,Plant code,-,-,-,JB / WAH / NZP / DGK
+plants.csv,plant_name,Plant name used by FCCL,-,V,S20,
+plants.csv,location_reference,Town used for distance calculation,-,V,S19,Towns per Sustainability Report 2025
+plants.csv,lat,Latitude of the reference town,decimal degrees,A,-,Approximate town-level point (about 10-20 km error)
+plants.csv,lon,Longitude of the reference town,decimal degrees,A,-,As above
+plants.csv,cement_capacity_tpd,Installed cement capacity,t/day,V,S20,
+plants.csv,cement_capacity_tpa,Annual cement capacity,t/yr,C,S20;S12,TPD x 300 operating days
+plants.csv,capacity_share,Plant share of company capacity,fraction,C,-,
+plants.csv,clinker_t,Clinker produced at the plant in FY25,t/yr,C,S19,Company clinker x capacity share (A: equal utilisation at all plants)
+plants.csv,heat_demand_gj,Kiln heat needed in FY25,GJ/yr,C,S19,clinker_t x specific heat (3.0295 GJ/t clinker)
+fuel_sources.csv,source_id,Fuel source code,-,-,-,AFG / BAL / SRC / IMP / BIO / TDF
+fuel_sources.csv,source_name,Fuel source description,-,-,-,Supplier categories (not named suppliers)
+fuel_sources.csv,fuel_type,coal or alt_fuel,-,-,-,
+fuel_sources.csv,origin_point,Dispatch point used for freight,-,A,-,Representative point for each source category
+fuel_sources.csv,lat,Latitude of origin point,decimal degrees,A,-,Blank for alternative fuels (collected locally)
+fuel_sources.csv,lon,Longitude of origin point,decimal degrees,A,-,
+fuel_sources.csv,cv_reported,Calorific value as published,kcal/kg or MJ/kg,V,cv_source,Basis given in cv_basis
+fuel_sources.csv,cv_basis,Basis of published calorific value (NCV = net; GCV = gross),-,V,cv_source,
+fuel_sources.csv,cv_source,Source of calorific value,-,-,-,
+fuel_sources.csv,ncv_gj_per_t,Net calorific value used in the model,GJ/t,C,cv_source,GCV x 0.90 (A) where only GCV is published; 1 kcal/kg = 0.0041868 GJ/t
+fuel_sources.csv,sulphur_pct,Sulphur content (mass),%,V,sulphur_source,Literature value for the coal type; not FCCL's actual coal
+fuel_sources.csv,sulphur_source,Source of sulphur value,-,-,-,
+fuel_sources.csv,ash_pct,Ash content (mass),%,V,ash_source,Recorded for reference; not used in the base model
+fuel_sources.csv,ash_source,Source of ash value,-,-,-,
+fuel_sources.csv,supply_capacity_t,Maximum supply available to FCCL in FY25,t/yr,S,-,Simulated; set above baseline needs
+fuel_sources.csv,supply_capacity_type,Data type of supply capacity,-,-,-,
+fuel_sources.csv,price_pkr_per_t,Price at origin before inland freight (alt fuels: delivered),PKR/t,C or S,see price_basis,
+fuel_sources.csv,price_type,Data type of price,-,-,-,
+fuel_sources.csv,price_basis,How the price was derived,-,-,-,
+routes.csv,source_id,Fuel source code,-,-,-,
+routes.csv,plant_id,Plant code,-,-,-,
+routes.csv,straight_km,Straight-line distance (haversine),km,C,-,From approximate coordinates
+routes.csv,road_km,Estimated road distance,km,C,-,straight_km x 1.30 circuity (A)
+routes.csv,freight_pkr_per_t,Inland freight cost,PKR/t,C,S13,road_km x 6.919 PKR/t-km; zero for alt fuels (included in price)
+routes.csv,delivered_cost_pkr_per_t,Price + freight,PKR/t,C,-,Cost coefficient in the objective function
+routes.csv,delivered_cost_pkr_per_gj,Delivered cost per unit of heat,PKR/GJ,C,-,For comparing fuels on a like-for-like basis
+parameters.csv,parameter,Scalar parameter name,-,-,-,
+parameters.csv,value,Parameter value,see unit,see data_type,-,
+parameters.csv,unit,Unit,-,-,-,
+parameters.csv,data_type,V / C / A / S,-,-,-,
+parameters.csv,source_id,Source register ID,-,-,-,
+parameters.csv,note,Explanation,-,-,-,
+baseline_allocation.csv,source_id,Fuel source code,-,-,-,
+baseline_allocation.csv,plant_id,Plant code,-,-,-,
+baseline_allocation.csv,tonnes,Baseline tonnes delivered,t/yr,C,S7;S19,FY25 mix rule: AF at 9.4% of heat; coal 25% Afghan / 37.5% Balochistan / 37.5% Salt Range by mass
+baseline_allocation.csv,cost_pkr,Baseline cost of the route,PKR/yr,C,-,tonnes x delivered_cost_pkr_per_t

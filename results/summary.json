@@ -1,0 +1,18 @@
+{
+  "status": "Optimal",
+  "solver": "lp_solve 5.5 via R lpSolve",
+  "settings": {
+    "s_max": 4.0325,
+    "tsr_max": 0.15
+  },
+  "baseline_cost_pkr": 19759653590,
+  "optimized_cost_pkr": 18965941349,
+  "saving_pkr": 793712241,
+  "saving_pct": 4.017,
+  "saving_from_coal_reallocation_pkr": 471956781,
+  "saving_from_extra_alt_fuel_pkr": 321755461,
+  "total_heat_gj": 13936191,
+  "baseline_cost_per_gj": 1417.87,
+  "optimized_cost_per_gj": 1360.91,
+  "binding_constraints": ["heat:JB", "coal_blend_sulphur:JB", "alt_fuel_heat_share:JB", "heat:WAH", "coal_blend_sulphur:WAH", "alt_fuel_heat_share:WAH", "heat:NZP", "coal_blend_sulphur:NZP", "alt_fuel_heat_share:NZP", "heat:DGK", "coal_blend_sulphur:DGK", "supply:SRC", "supply:BIO", "supply:TDF"]
+}
